@@ -1,0 +1,27 @@
+.adDesigner{
+    font-family: 'Caveat', cursive;
+    
+}
+
+.button{
+    background-color:  #0e3c7e;
+}
+
+.ad{
+
+    border: 2px solid #222;
+    height: 100px;
+    width: 150px;
+    
+   
+}
+
+.buttonBoxAd{
+    display: flex;
+    
+}
+
+.buttonBoxAd .button{
+    height: 20px;
+    width: 50px;
+}

@@ -1,0 +1,9 @@
+.headerBox{
+    font-family: 'Caveat', cursive;
+    color:#0e3c7e ;
+    box-shadow: 1px 1px grey;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
