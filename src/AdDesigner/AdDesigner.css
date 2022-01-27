@@ -3,18 +3,31 @@
     
 }
 
+
+
 .button{
     background-color:  #0e3c7e;
 }
 
-.ad{
-
+.light{
     border: 2px solid #222;
+    background-color: white;
+    color: #000;
     height: 100px;
     width: 150px;
-    
-   
+
 }
+
+.dark{
+    background-color: #222;
+    color: #fff;
+    height: 100px;
+    width: 150px;
+}
+
+
+   
+
 
 .buttonBoxAd{
     display: flex;

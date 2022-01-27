@@ -1,11 +1,12 @@
 import { useState } from "react"
+import './Vote.css'
 
 export function Vote(){
    
-   const[percentage, setPercentage] = useState(0)
+//    const[percentage, setPercentage] = useState(0)
    const[chocVoteCount, setChocVoteCount] = useState(0)
    const[vanVoteCount, setVanVoteCount] = useState(0)
-   const[strawvoteCount, setStrawVoteCount] = useState(0)
+   const[strawVoteCount, setStrawVoteCount] = useState(0)
 
 
    function addChocolateVote(){
@@ -17,12 +18,21 @@ export function Vote(){
 }
 
 function addStrawberryVote(){
-    setStrawVoteCount(strawvoteCount +1)
+    setStrawVoteCount(strawVoteCount +1)
 }
 
-   function UpdatePercentage(){
-    //    flavorVote / totalVote* 100
+const allVotes = strawVoteCount + chocVoteCount + vanVoteCount
+
+   function updatePercentage(flavorCount:number){
+       if (flavorCount > 0){
+      return  flavorCount / allVotes * 100
+       }else{return 0}
    }
+
+
+const styleChoc = {width: updatePercentage(chocVoteCount) + "%"} 
+const styleVan = {width: updatePercentage(vanVoteCount) + "%"} 
+const styleStraw = {width: updatePercentage(strawVoteCount) + "%"} 
    
    
    return( <div>
@@ -33,12 +43,12 @@ function addStrawberryVote(){
         <button className='button' onClick={addStrawberryVote}> Strawberry </button>
         </div>
         <div>
-            <p>Chocolate: chocolateVoteCount (percent)</p>
-            <div className = "chocolate-percent">BrownPercentBar</div>
-            <p>Vanilla: vanillaVoteCount (percent)</p>
-            <div className = "vanilla-percent">TanPercentBar</div>
-            <p>Strawberry: strawberryVoteCount (percent)</p>
-            <div className = "strawberry-percent">PinkPercentBar</div>
+            <h2>Chocolate: {chocVoteCount} {updatePercentage(chocVoteCount).toFixed(1)}%</h2>
+            <div className = "chocolate-percent" style={styleChoc}>BrownPercentBar</div>
+            <h2>Vanilla: {vanVoteCount} {updatePercentage(vanVoteCount).toFixed(1)}%</h2>
+            <div className = "vanilla-percent" style={styleVan}>TanPercentBar</div>
+            <h2>Strawberry:{strawVoteCount} {updatePercentage(strawVoteCount).toFixed(1)}%</h2>
+            <div className = "strawberry-percent" style={styleStraw}>PinkPercentBar</div>
         </div>
 
         
